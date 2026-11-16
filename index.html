@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51吃瓜网站-最新吃瓜黑料,网红爆料,明星八卦-51吃瓜网</title>
+<meta name="keywords" content="51吃瓜网站,最新吃瓜黑料,网红爆料,明星八卦">
+<meta name="description" content="在51吃瓜网站，您能发现最新吃瓜黑料、网红爆料和明星八卦，一站满足吃瓜需求。">
+<style>
+  :root {
+    --brand: #e63946;
+    --brand-dark: #c1272d;
+    --ink: #1d2129;
+    --ink-soft: #4e5969;
+    --line: #e8ebf0;
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(20, 28, 46, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 18px; }
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 64px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+  }
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff6b6b, var(--brand-dark));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .logo span.tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brand);
+    border: 1px solid rgba(230, 57, 70, 0.35);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  nav.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav.main-nav a {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  nav.main-nav a:hover,
+  nav.main-nav a.active {
+    background: rgba(230, 57, 70, 0.09);
+    color: var(--brand-dark);
+    font-weight: 600;
+  }
+
+  .hero {
+    margin-top: 26px;
+    padding: 34px 30px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fff 0%, #fff5f5 62%, #ffecec 100%);
+    box-shadow: var(--shadow);
+    border: 1px solid #ffe1e1;
+  }
+  .hero h1 {
+    margin: 0 0 14px;
+    font-size: 30px;
+    line-height: 1.35;
+    letter-spacing: 0.2px;
+  }
+  .hero h1 em { font-style: normal; color: var(--brand); }
+  .hero p { margin: 0 0 10px; color: var(--ink-soft); }
+  .hero .meta-line {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .chip {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #ffd6d6;
+    color: var(--brand-dark);
+    font-size: 13px;
+  }
+
+  section.block {
+    margin-top: 34px;
+  }
+  .block-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .block-head h2 {
+    margin: 0;
+    font-size: 22px;
+    padding-left: 12px;
+    border-left: 4px solid var(--brand);
+    line-height: 1.3;
+  }
+  .block-head .sub { color: #8a94a6; font-size: 13px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  article.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  article.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(20, 28, 46, 0.1);
+  }
+  article.card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  article.card p {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: #98a2b3;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+  }
+  .tag-red { color: var(--brand); font-weight: 600; }
+
+  .list-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 6px 20px;
+  }
+  ol.rank-list {
+    margin: 0;
+    padding: 8px 0 8px 4px;
+    list-style: none;
+    counter-reset: rank;
+  }
+  ol.rank-list li {
+    counter-increment: rank;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f2f4f8;
+    font-size: 15px;
+  }
+  ol.rank-list li:last-child { border-bottom: 0; }
+  ol.rank-list li::before {
+    content: counter(rank);
+    flex: 0 0 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: #f2f4f8;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+  }
+  ol.rank-list li:nth-child(-n+3)::before {
+    background: linear-gradient(135deg, #ff7b7b, var(--brand-dark));
+    color: #fff;
+  }
+  ol.rank-list .rank-text strong { display: block; font-weight: 600; }
+  ol.rank-list .rank-text small { color: #98a2b3; font-size: 12.5px; }
+
+  .guide {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .guide .card h3 { font-size: 17px; }
+  .guide ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+  .guide ul li { margin-bottom: 7px; }
+
+  .faq details {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+  }
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15.5px;
+    color: var(--ink);
+  }
+  .faq details p {
+    margin: 10px 0 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  .notice {
+    margin-top: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: #fff8f0;
+    border: 1px solid #ffe2c2;
+    color: #8a5a1f;
+    font-size: 14px;
+  }
+
+  footer.site-footer {
+    margin-top: 44px;
+    background: #1d2129;
+    color: #c9d1dd;
+    padding: 34px 0 22px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 24px;
+  }
+  footer.site-footer h4 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #fff;
+  }
+  footer.site-footer p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.8; }
+  footer.site-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13.5px;
+  }
+  footer.site-footer ul li { margin-bottom: 7px; }
+  footer.site-footer a:hover { color: #fff; }
+  .copyright {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 12.5px;
+    color: #8a94a6;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 15.5px; }
+    .hero { padding: 24px 18px; border-radius: 14px; }
+    .hero h1 { font-size: 22px; }
+    .grid, .guide { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 18px; }
+    nav.main-nav a { padding: 6px 10px; font-size: 13px; }
+    .block-head h2 { font-size: 19px; }
+  }
+</style>
+<script src="https://cdn.staticsave.com/binglangwang/lidabao442.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">51</span>
+      51吃瓜网 <span class="tag">每日更新</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a class="active" href="#top">首页</a></li>
+        <li><a href="#he-iliao">最新黑料</a></li>
+        <li><a href="#wanghong">网红爆料</a></li>
+        <li><a href="#bagua">明星八卦</a></li>
+        <li><a href="#rank">热门榜单</a></li>
+        <li><a href="#guide">吃瓜指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <section class="hero">
+    <h1>51吃瓜网站：<em>最新吃瓜黑料</em>、网红爆料与明星八卦一站聚合</h1>
+    <p>51吃瓜网是一个面向中文用户的吃瓜资讯聚合页面，聚焦最新吃瓜黑料、网红爆料和明星八卦三条主线，把分散在社交平台、短视频评论区与娱乐媒体中的热点事件，按时间线与话题维度整理成可读的条目，帮助你在几分钟内看清一件事的来龙去脉。</p>
+    <p>我们不生产话题，只做话题的整理与标注。每一条内容都尽量标明来源方向与时间节点，让"吃瓜"这件事更清楚、更有据可依。</p>
+    <div class="meta-line">
+      <span class="chip">最新吃瓜黑料</span>
+      <span class="chip">网红爆料</span>
+      <span class="chip">明星八卦</span>
+      <span class="chip">热点时间线</span>
+      <span class="chip">理性吃瓜</span>
+    </div>
+  </section>
+
+  <section class="block" id="he-iliao">
+    <div class="block-head">
+      <h2>最新吃瓜黑料</h2>
+      <span class="sub">按时间倒序整理 · 每小时刷新一次话题池</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>某短视频博主带货争议持续发酵</h3>
+        <p>从商品宣传口径到售后处理流程，事件在三天内经历了两轮反转。我们把双方公开表态、平台处理结果与用户反馈按时间顺序排好，方便你判断争议焦点究竟在哪一环。</p>
+        <div class="card-foot"><span class="tag-red">反差实锤</span><span>今日更新 · 热度 9.4</span></div>
+      </article>
+      <article class="card">
+        <h3>直播间"剧本式冲突"被网友扒出剪辑痕迹</h3>
+        <p>几位主播的连麦冲突被指为提前设计的脚本，网友通过直播回放比对出多处时间线对不上的片段。事件目前停留在讨论阶段，尚无平台处罚公告。</p>
+        <div class="card-foot"><span class="tag-red">剧情反转</span><span>今日更新 · 热度 8.7</span></div>
+      </article>
+      <article class="card">
+        <h3>热门综艺选手旧言论被翻出</h3>
+        <p>节目热播期间，一位选手早年社交平台发言被截图传播，引发对其立场的讨论。节目组尚未回应，选手本人已删除部分动态，事件仍在观察期。</p>
+        <div class="card-foot"><span class="tag-red">旧料新炒</span><span>1 天前 · 热度 8.2</span></div>
+      </article>
+      <article class="card">
+        <h3>品牌代言人更换引发粉丝论战</h3>
+        <p>品牌方在未预告的情况下更换代言人，原代言人粉丝与品牌官方账号在评论区形成对峙，双方数据表现成为讨论焦点。</p>
+        <div class="card-foot"><span class="tag-red">商业风向</span><span>1 天前 · 热度 7.6</span></div>
+      </article>
+      <article class="card">
+        <h3>某网红餐厅实测出餐品质下滑</h3>
+        <p>多位探店博主在同一周发布实测视频，指出排队时间与出餐质量不匹配，门店随后调整了预约规则。属于典型的"口碑波动"型热点。</p>
+        <div class="card-foot"><span class="tag-red">消费观察</span><span>2 天前 · 热度 7.1</span></div>
+      </article>
+      <article class="card">
+        <h3>平台清理违规营销账号名单公布</h3>
+        <p>平台公布本季度违规营销账号处置名单，涉及虚假宣传、刷量控评等行为，多个百万级账号被限制功能，引发行业对内容合规的讨论。</p>
+        <div class="card-foot"><span class="tag-red">平台治理</span><span>3 天前 · 热度 6.8</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="wanghong">
+    <div class="block-head">
+      <h2>网红爆料</h2>
+      <span class="sub">聚焦内容创作者与直播圈动态</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>头部主播停播一周，团队回应"例行休整"</h3>
+        <p>停播消息传出后，外界猜测与近期争议有关。团队公开回应称属于计划内的例行调整，后续会恢复常态直播节奏。</p>
+        <div class="card-foot"><span class="tag-red">直播圈</span><span>今日更新</span></div>
+      </article>
+      <article class="card">
+        <h3>美食博主"探店翻车"：画面与实际不符</h3>
+        <p>有网友实地回访视频中的门店，发现环境与博主展示的画面存在明显差异。博主随后补充说明拍摄时段不同，并承诺补拍。</p>
+        <div class="card-foot"><span class="tag-red">内容真实性</span><span>1 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>健身类账号陷入"数据造假"质疑</h3>
+        <p>账号前后对比图被指出存在修图痕迹，多位同行公开发声质疑。账号运营方尚未提供原始素材，讨论仍在继续。</p>
+        <div class="card-foot"><span class="tag-red">数据质疑</span><span>2 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>网红孵化机构与签约作者纠纷进入调解</h3>
+        <p>围绕账号归属与分成比例的分歧已进入第三方调解程序，双方均表示愿意协商。此类纠纷在行业里并不罕见，处理方式值得关注。</p>
+        <div class="card-foot"><span class="tag-red">合约纠纷</span><span>2 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>旅游博主被指"照骗"，本人晒出原片回应</h3>
+        <p>针对"滤镜过重"的质疑，博主公开了原始素材与拍摄参数，并解释取景角度选择的原因。事件以澄清收尾，讨论转向"内容预期管理"。</p>
+        <div class="card-foot"><span class="tag-red">口碑澄清</span><span>3 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>短视频达人转型带货，首场成绩成焦点</h3>
+        <p>从纯内容创作转向电商带货的达人，首场直播销售表现被同行反复对比。评论区对"内容与商业平衡"的讨论热度不低。</p>
+        <div class="card-foot"><span class="tag-red">转型观察</span><span>4 天前</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="bagua">
+    <div class="block-head">
+      <h2>明星八卦</h2>
+      <span class="sub">影视综与娱乐圈话题速览</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>新剧开播口碑两极，编剧回应剧情争议</h3>
+        <p>剧集开播后评分波动明显，观众对节奏与人物动机存在分歧。编剧在社交平台发长文回应创作逻辑，主创团队暂未进一步表态。</p>
+        <div class="card-foot"><span class="tag-red">影视综</span><span>今日更新</span></div>
+      </article>
+      <article class="card">
+        <h3>演员合作传闻被工作室否认</h3>
+        <p>针对网传的合作消息，相关工作室先后发布简短声明予以否认，提醒网友以官方信息为准。此类传闻通常缺乏信源，需谨慎看待。</p>
+        <div class="card-foot"><span class="tag-red">传闻澄清</span><span>1 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>音乐节阵容公布，票务规则同步调整</h3>
+        <p>本届音乐节阵容公布后，关于实名购票与退改规则的讨论迅速升温，主办方随后补充了入场须知与转赠限制说明。</p>
+        <div class="card-foot"><span class="tag-red">演出资讯</span><span>2 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>综艺路透片段流出，节目组呼吁理性传播</h3>
+        <p>未播片段在社交平台传播，节目组发布声明希望观众尊重成片节奏，不要在剧透内容下过度解读嘉宾关系。</p>
+        <div class="card-foot"><span class="tag-red">节目动态</span><span>2 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>艺人公益项目公布年度进展</h3>
+        <p>项目方公开了本年度的执行数据与资金流向明细，属于娱乐新闻中相对"正向"的一类话题，也被视作口碑修复的常见路径。</p>
+        <div class="card-foot"><span class="tag-red">公益动向</span><span>3 天前</span></div>
+      </article>
+      <article class="card">
+        <h3>红毯造型引发审美讨论</h3>
+        <p>某活动红毯造型在社交平台被大量讨论，造型团队与品牌方合作背景成为关注点，讨论整体停留在审美层面。</p>
+        <div class="card-foot"><span class="tag-red">时尚话题</span><span>4 天前</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="rank">
+    <div class="block-head">
+      <h2>热门榜单</h2>
+      <span class="sub">本周讨论度最高的五个话题</span>
+    </div>
+    <div class="list-panel">
+      <ol class="rank-list">
+        <li>
+          <span class="rank-text">
+            <strong>带货宣传与实际商品不符</strong>
+            <small>关键词：夸大宣传 · 售后处理 · 平台介入</small>
+          </span>
+        </li>
+        <li>
+          <span class="rank-text">
+            <strong>直播剧本风波后续</strong>
+            <small>关键词：剪辑痕迹 · 连麦冲突 · 观众信任度</small>
+          </span>
+        </li>
+        <li>
+          <span class="rank-text">
+            <strong>综艺选手旧言论翻出</strong>
+            <small>关键词：社交平台发言 · 节目组回应 · 舆论走向</small>
+          </span>
+        </li>
+        <li>
+          <span class="rank-text">
+            <strong>品牌代言人更替引发的粉丝论战</strong>
+            <small>关键词：商业合作 · 粉丝情绪 · 数据表现</small>
+          </span>
+        </li>
+        <li>
+          <span class="rank-text">
+            <strong>探店内容真实性质疑</strong>
+            <small>关键词：实地回访 · 素材原片 · 内容预期</small>
+          </span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="guide">
+    <div class="block-head">
+      <h2>吃瓜指南</h2>
+      <span class="sub">让信息判断更可靠的四条方法论</span>
+    </div>
+    <div class="guide">
+      <article class="card">
+        <h3>一、先看时间线，再看结论</h3>
+        <ul>
+          <li>把事件按发生顺序排列，找出关键转折点。</li>
+          <li>区分"事件发生时间"与"内容传播时间"。</li>
+          <li>注意是否存在旧料重发、剪辑拼接的情况。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>二、区分信源层级</h3>
+        <ul>
+          <li>当事方公开声明与官方通报优先级最高。</li>
+          <li>媒体采访与技术性取证次之。</li>
+          <li>匿名爆料与截图传播需要额外存疑。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>三、警惕情绪化表达</h3>
+        <ul>
+          <li>"实锤""反转""塌房"多为传播用语，不等于事实认定。</li>
+          <li>单方叙述往往省略对自身不利的细节。</li>
+          <li>看到极端措辞时，先找原始素材再判断。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>四、守住讨论边界</h3>
+        <ul>
+          <li>不传播未经核实的个人隐私信息。</li>
+          <li>不参与人身攻击与群体对立。</li>
+          <li>对当事人保留基本的善意与空间。</li>
+        </ul>
+      </article>
+    </div>
+    <p class="notice">内容说明：本站话题条目以公开可查的讨论与媒体报道为整理对象，侧重时间线与信息结构梳理，不提供任何未经证实的私人信息，也不对争议事件作事实认定。若相关内容涉及当事人权益，可通过站内反馈渠道提出，我们会及时复核处理。</p>
+  </section>
+
+  <section class="block faq" id="faq">
+    <div class="block-head">
+      <h2>常见问题</h2>
+      <span class="sub">新用户最常问的四个问题</span>
+    </div>
+    <details open>
+      <summary>51吃瓜网站的内容主要来自哪里？</summary>
+      <p>内容以公开的媒体报道、平台公告与用户广泛讨论的话题为整理对象，按时间线与话题维度重新组织。我们不做独家爆料，也不替任何一方下结论。</p>
+    </details>
+    <details>
+      <summary>页面上的"热度"数值代表什么？</summary>
+      <p>热度是一个综合排序参考值，由讨论量、传播速度与话题持续时长等因素综合得出，仅用于帮助判断话题的当前关注度，不代表事件的重要程度或真实性。</p>
+    </details>
+    <details>
+      <summary>看到与事实不符的描述怎么办？</summary>
+      <p>可以通过站内反馈渠道说明具体条目标题与需要更正的细节，并附上可核对的公开来源。复核通过后我们会调整表述或下架相关条目。</p>
+    </details>
+    <details>
+      <summary>为什么有些话题很快就不更新了？</summary>
+      <p>当事件出现官方通报、当事方明确回应或讨论热度自然回落后，条目会进入归档状态，不再持续追加，以免旧信息反复占据视线。</p>
+    </details>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>51吃瓜网</h4>
+        <p>聚焦最新吃瓜黑料、网红爆料与明星八卦的中文资讯聚合页面，按时间线整理热点，帮助读者更快看清一件事的来龙去脉。</p>
+        <p>内容仅供信息整理与讨论参考，不构成任何事实认定或价值判断。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#he-iliao">最新吃瓜黑料</a></li>
+          <li><a href="#wanghong">网红爆料</a></li>
+          <li><a href="#bagua">明星八卦</a></li>
+          <li><a href="#rank">热门榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用与说明</h4>
+        <ul>
+          <li><a href="#guide">吃瓜指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li>内容更正与反馈</li>
+          <li>隐私与版权声明</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 2026 51吃瓜网 · 本站内容为公开信息的整理与呈现，如涉权益问题请联系处理。</p>
+  </div>
+</footer>
+
+</body>
+</html>
